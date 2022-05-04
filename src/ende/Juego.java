@@ -59,7 +59,7 @@ public class Juego
             	EXITOS_jugador2 = ++p2.exitos;
                 System.out.println("Jugador 2 GANA");
             }
-            if(opcion_JUGADOR1==opcion_JUGADOR2)
+            if(opcion_JUGADOR1.equals(opcion_JUGADOR2))
             {
             	EmPaTeS++;
                 System.out.println("\n\t\t\t Empate \n");
