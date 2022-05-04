@@ -17,7 +17,7 @@ public class Juego {
     public static void main(String[] args) {
         Jugador p1 = new Jugador();
         Jugador p2 = new Jugador();
-        boolean finDeJuego = false;
+        boolean finDeJuego;
         // Número de rondas jugadas
         rondasJugadas = 0;
         exitosJugador1 = p1.getExitos();
@@ -59,8 +59,6 @@ public class Juego {
 
     /**
      * Informe previo a cada ronda, incluyendo la opción seleccionada por cada jugador
-     * @param opcionJugador1
-     * @param opcionJugador2
      */
     private static void informeRonda(JUGADA opcionJugador1, JUGADA opcionJugador2) {
         System.out.println("***** Ronda: " + rondasJugadas + " *********************\n");
@@ -71,9 +69,6 @@ public class Juego {
 
     /**
      * Informa de qué jugador gana la ronda e incrementa su contador de exitos
-     * @param jugador
-     * @param numJugador
-     * @return
      */
     private static int jugadorGana(Jugador jugador, int numJugador) {
         int exitosJugador;
