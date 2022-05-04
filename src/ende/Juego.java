@@ -8,6 +8,7 @@ package ende;
 
 public class Juego {
 
+    public static final int VICTORIAS_OBJETIVO = 3;
     private static int rondasJugadas;
     private static int exitosJugador1;
     private static int exitosJugador2;
@@ -31,16 +32,16 @@ public class Juego {
             informeRonda(opcionJugador1, opcionJugador2);
 
             int resultado = opcionJugador1.gana(opcionJugador2);
-            if (resultado == 1) {
-                exitosJugador2 = jugadorGana(p2, 2);
-            } else if (resultado == -1) {
-                exitosJugador1 = jugadorGana(p1, 1);
-            } else {
-                empates++;
-                System.out.println("\n\t\t\t Empate \n");
+            switch (resultado) {
+                case 1 -> exitosJugador2 = jugadorGana(p2, 2);
+                case -1 -> exitosJugador1 = jugadorGana(p1, 1);
+                default -> {
+                    empates++;
+                    System.out.println("\n\t\t\t Empate \n");
+                }
             }
             rondasJugadas++;
-            if ((p1.getExitos() >= 3) || (p2.getExitos() >= 3)) {
+            if ((p1.getExitos() >= VICTORIAS_OBJETIVO) || (p2.getExitos() >= VICTORIAS_OBJETIVO)) {
                 finDeJuego = true;
                 System.out.println("FIN DEL JUEGO!!");
             }
