@@ -6,7 +6,6 @@ package ende;
 class Jugador {
 
     private int exitos;      // número de partidas ganadas
-    int winTotal;
 
     /**
      * Escoge piedra, papel o tijera al azar
