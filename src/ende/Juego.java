@@ -71,6 +71,6 @@ public class Juego
                 System.out.println("FIN DEL JUEGO!!");
             }
             System.out.println();
-        } while(fin_de_juego!=true);
+        } while(!fin_de_juego);
     }
 }
