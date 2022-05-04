@@ -13,8 +13,8 @@ public class Juego
         Jugador p2=new Jugador();
         boolean finDeJuego=false;
         int rondasJugadas = 0;    // Número de rondas jugadas
-        int exitosJugador1=p1.exitos;
-        int exitosJugador2=p2.exitos;
+        int exitosJugador1= p1.getExitos();
+        int exitosJugador2= p2.getExitos();
         int empates = 0;
 
         // Bucle de juego
@@ -30,32 +30,32 @@ public class Juego
             if((opcionJugador1.equals("piedra"))&&(opcionJugador2.equals("papel")))
             {
                 System.out.println("Jugador 2 GANA");
-                exitosJugador2 = ++p2.exitos;
-                
+                exitosJugador2 = p2.incrementaExitos();
+
             }
             else if((opcionJugador1.equals("papel"))&&(opcionJugador2.equals("piedra")))
             {
-            	exitosJugador1 = ++p1.exitos;
+            	exitosJugador1 = p1.incrementaExitos();
                 System.out.println("Jugador 1 GANA");
             }
             else if((opcionJugador1.equals("piedra"))&&(opcionJugador2.equals("tijeras")))
             {
-            	exitosJugador1 = ++p1.exitos;
+            	exitosJugador1 = p1.incrementaExitos();
                 System.out.println("Jugador 1 GANA");
             }
             else if((opcionJugador1.equals("tijeras"))&&(opcionJugador2.equals("piedra")))
             {
-            	exitosJugador2 = ++p2.exitos;
+            	exitosJugador2 = p2.incrementaExitos();
                 System.out.println("Jugador 2 GANA");
             }
             else if((opcionJugador1.equals("tijeras"))&&(opcionJugador2.equals("papel")))
             {
-            	exitosJugador1 = ++p1.exitos;
+            	exitosJugador1 = p1.incrementaExitos();
                 System.out.println("Jugador 1 GANA");
             }
             else if((opcionJugador1.equals("papel"))&&(opcionJugador2.equals("tijeras")))
             {
-            	exitosJugador2 = ++p2.exitos;
+            	exitosJugador2 = p2.incrementaExitos();
                 System.out.println("Jugador 2 GANA");
             }
             if(opcionJugador1.equals(opcionJugador2))
@@ -64,7 +64,7 @@ public class Juego
                 System.out.println("\n\t\t\t Empate \n");
             }
             rondasJugadas++;
-            if((p1.exitos >=3)||(p2.exitos >=3))
+            if((p1.getExitos() >=3)||(p2.getExitos() >=3))
             {
             	finDeJuego=true;
                 System.out.println("FIN DEL JUEGO!!");

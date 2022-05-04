@@ -5,7 +5,7 @@ package ende;
  */
 class Jugador {
 
-    int exitos;      // número de partidas ganadas
+    private int exitos;      // número de partidas ganadas
     int winTotal;
 
     /**
@@ -22,11 +22,15 @@ class Jugador {
         return opcion;
     }
 
-    public void setExitos() {
-        exitos++;
+    public int incrementaExitos() {
+        return ++exitos;
     }
 
     public int getExitos() {
         return (exitos);
+    }
+
+    public void setExitos(int exitos) {
+        this.exitos = exitos;
     }
 }
