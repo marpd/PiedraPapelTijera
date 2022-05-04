@@ -2,6 +2,7 @@ package ende;
 
 /**
  * Simula el juego de Piedra, Papel o tijera
+ * @author Marce
  */
 
 
@@ -47,6 +48,11 @@ public class Juego {
         } while (!finDeJuego);
     }
 
+    /**
+     * Informe previo a cada ronda, incluyendo la opción seleccionada por cada jugador
+     * @param opcionJugador1
+     * @param opcionJugador2
+     */
     private static void informeRonda(JUGADA opcionJugador1, JUGADA opcionJugador2) {
         System.out.println("***** Ronda: " + rondasJugadas + " *********************\n");
         System.out.println("Numero de empates: " + empates + "\n");
@@ -54,6 +60,12 @@ public class Juego {
         System.out.println("Jugador 2: " + opcionJugador2 + "\t Jugador 2 - Partidas ganadas: " + exitosJugador2);
     }
 
+    /**
+     * Informa de qué jugador gana la ronda e incrementa su contador de exitos
+     * @param jugador
+     * @param numJugador
+     * @return
+     */
     private static int jugadorGana(Jugador jugador, int numJugador) {
         int exitosJugador;
         System.out.println("Jugador " + numJugador + " GANA");
