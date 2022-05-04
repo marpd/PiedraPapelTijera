@@ -30,20 +30,23 @@ public class Juego {
             JUGADA opcionJugador2 = p2.opcion_al_azar();
 
             informeRonda(opcionJugador1, opcionJugador2);
-
-            int resultado = opcionJugador1.gana(opcionJugador2);
-            switch (resultado) {
-                case 1 -> exitosJugador2 = jugadorGana(p2, 2);
-                case -1 -> exitosJugador1 = jugadorGana(p1, 1);
-                default -> {
-                    empates++;
-                    System.out.println("\n\t\t\t Empate \n");
-                }
-            }
-            rondasJugadas++;
+            procesaRonda(p1, p2, opcionJugador1, opcionJugador2);
             finDeJuego = esFinDeJuego(p1, p2);
             System.out.println();
         } while (!finDeJuego);
+    }
+
+    private static void procesaRonda(Jugador p1, Jugador p2, JUGADA opcionJugador1, JUGADA opcionJugador2) {
+        int resultado = opcionJugador1.gana(opcionJugador2);
+        switch (resultado) {
+            case 1 -> exitosJugador2 = jugadorGana(p2, 2);
+            case -1 -> exitosJugador1 = jugadorGana(p1, 1);
+            default -> {
+                empates++;
+                System.out.println("\n\t\t\t Empate \n");
+            }
+        }
+        rondasJugadas++;
     }
 
     private static boolean esFinDeJuego(Jugador p1, Jugador p2) {
