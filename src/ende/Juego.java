@@ -16,17 +16,15 @@ public class Juego
         int exitosJugador1=p1.exitos;
         int exitosJugador2=p2.exitos;
         int empates = 0;
-        String opcionJugador1;
-        String opcionJugador2;
 
         // Bucle de juego
         do
         {
             System.out.println("***** Ronda: " + rondasJugadas+" *********************\n");
             System.out.println("Numero de empates: "+ empates + "\n");
-            opcionJugador1=p1.opcion_al_azar();
+            String opcionJugador1 = p1.opcion_al_azar();
             System.out.println("Jugador 1: " + opcionJugador1+"\t Jugador 1 - Partidas ganadas: " + exitosJugador1);
-            opcionJugador2 = p2.opcion_al_azar();
+            String opcionJugador2 = p2.opcion_al_azar();
             System.out.println("Jugador 2: " + opcionJugador2+"\t Jugador 2 - Partidas ganadas: " + exitosJugador2);
             
             if((opcionJugador1.equals("piedra"))&&(opcionJugador2.equals("papel")))
