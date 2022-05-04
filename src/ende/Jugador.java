@@ -27,7 +27,7 @@ class Jugador {
     }
 
     public int getExitos() {
-        return (exitos);
+        return exitos;
     }
 
     public void setExitos(int exitos) {
