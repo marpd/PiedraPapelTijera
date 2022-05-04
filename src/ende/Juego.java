@@ -24,25 +24,17 @@ public class Juego {
 
         // Bucle de juego
         do {
-            String opcionJugador1 = p1.opcion_al_azar();
-            String opcionJugador2 = p2.opcion_al_azar();
+            JUGADA opcionJugador1 = p1.opcion_al_azar();
+            JUGADA opcionJugador2 = p2.opcion_al_azar();
+
             informeRonda(opcionJugador1, opcionJugador2);
 
-            if ((opcionJugador1.equals("piedra")) && (opcionJugador2.equals("papel"))) {
+            int resultado = opcionJugador1.gana(opcionJugador2);
+            if (resultado == 1) {
                 exitosJugador2 = jugadorGana(p2, 2);
-            } else if ((opcionJugador1.equals("papel")) && (opcionJugador2.equals("piedra"))) {
+            } else if (resultado == -1) {
                 exitosJugador1 = jugadorGana(p1, 1);
-            } else if ((opcionJugador1.equals("piedra")) && (opcionJugador2.equals("tijeras"))) {
-                exitosJugador1 = jugadorGana(p1, 1);
-            } else if ((opcionJugador1.equals("tijeras")) && (opcionJugador2.equals("piedra"))) {
-                exitosJugador2 = p2.incrementaExitos();
-                System.out.println("Jugador 2 GANA");
-            } else if ((opcionJugador1.equals("tijeras")) && (opcionJugador2.equals("papel"))) {
-                exitosJugador1 = jugadorGana(p1, 1);
-            } else if ((opcionJugador1.equals("papel")) && (opcionJugador2.equals("tijeras"))) {
-                exitosJugador2 = jugadorGana(p2, 2);
-            }
-            if (opcionJugador1.equals(opcionJugador2)) {
+            } else {
                 empates++;
                 System.out.println("\n\t\t\t Empate \n");
             }
@@ -55,7 +47,7 @@ public class Juego {
         } while (!finDeJuego);
     }
 
-    private static void informeRonda(String opcionJugador1, String opcionJugador2) {
+    private static void informeRonda(JUGADA opcionJugador1, JUGADA opcionJugador2) {
         System.out.println("***** Ronda: " + rondasJugadas + " *********************\n");
         System.out.println("Numero de empates: " + empates + "\n");
         System.out.println("Jugador 1: " + opcionJugador1 + "\t Jugador 1 - Partidas ganadas: " + exitosJugador1);
