@@ -41,12 +41,17 @@ public class Juego {
                 }
             }
             rondasJugadas++;
-            if ((p1.getExitos() >= VICTORIAS_OBJETIVO) || (p2.getExitos() >= VICTORIAS_OBJETIVO)) {
-                finDeJuego = true;
-                System.out.println("FIN DEL JUEGO!!");
-            }
+            finDeJuego = esFinDeJuego(p1, p2);
             System.out.println();
         } while (!finDeJuego);
+    }
+
+    private static boolean esFinDeJuego(Jugador p1, Jugador p2) {
+        if ((p1.getExitos() >= VICTORIAS_OBJETIVO) || (p2.getExitos() >= VICTORIAS_OBJETIVO)) {
+            System.out.println("FIN DEL JUEGO!!");
+            return true;
+        }
+        return false;
     }
 
     /**
